@@ -63,7 +63,7 @@ function init() {
             });
     } else if ('/panier.html' == document.location.pathname) {
         currentCart.products.forEach(function (item) {
-                itemToPage(item, document.querySelector("cart.products"), template.content.cloneNode(true))
+                itemToPage(item, document.querySelector(".cart"), template.content.cloneNode(true))
             });
     } else {
         products
