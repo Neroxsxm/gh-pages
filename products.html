@@ -10,13 +10,9 @@
 <body>
     <header>
         <h1>Neroxshop</h1>
-
         <div class="floating-icon" onclick="ouvrirPanneau()">
             <i class="fas fa-shopping-cart"></i>
         </div>
-
-
-
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
@@ -24,29 +20,20 @@
             </ul>
         </nav>
     </header>
-
-    <section class="product">
-        <img src="img/product1.jpg" alt="Product 1" width="300">
-        <h2>Clavier Gamer G-Lab</h2>
-        <p>Clavier Gamer de premier choix</p>
-        <p>Prix : $19.99</p>
-        <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+    <section class="products">
+        <template id="product">
+            <article class="product" data-sku="">
+                <img src="img/none.jpg" alt="Product">
+                <h2>titre</h2>
+                <p>Le meilleur Casque Gaming le son ne sera plus un probl&egrave;me</p>
+                <p>Prix : <var class="price"></var>&euro;</p>
+                <button onclick="ajouterAuPanier(this)">Ajouter au panier</button>
+            </article>
+        </template>
     </section>
-
-    <section class="product">
-        <img src="img/product2.jpg" alt="Product 2" width="300" >
-        <h2>Souris Gamer Spirit of Gamer</h2>
-        <p>La souris gamer la plus optimisée</p>
-        <p>Prix : $29.99</p>
-        <button onclick="ajouterAuPanier()">Ajouter au panier</button>
-    </section>
-
-    <!-- Ajoutez d'autres produits ici -->
-
     <footer>
         <p>&copy; 2023 Neroxshop E-Commerce. Tous droits réservés.</p>
     </footer>
-
     <script src="js/main.js"></script>
 </body>
 </html>

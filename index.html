@@ -14,9 +14,6 @@
         <div class="floating-icon" onclick="ouvrirPanneau()">
             <i class="fas fa-shopping-cart"></i>
         </div>
-
-
-
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
@@ -24,28 +21,21 @@
             </ul>
         </nav>
     </header>
-
-    <section class="featured-products">
-        <h2>Produits en vedette</h2>
-        <img src="img/product4.jpg" alt="Product 4" width="300">
-        </h2>Casque Gamer Ultra Suround</h2>
-        <p>Le meilleur Casque Gaming le son ne sera plus un probl&egrave;me</p>
-        <p>Prix : $80.0</p>
-        <button onclick="ajouterAuPanier()">Ajouter au panier</button> <!-- Ajoutez ici des éléments HTML représentant des produits en vedette -->
+    <h2>Produits en vedette</h2>
+    <section class="products">
+        <template id="product">
+            <article class="product featured" data-sku="">
+                <img src="img/none.jpg" alt="Product">
+                <h2>titre</h2>
+                <p>Le meilleur Casque Gaming le son ne sera plus un probl&egrave;me</p>
+                <p>Prix : <var class="price"></var>&euro;</p>
+                <button onclick="ajouterAuPanier(this)">Ajouter au panier</button>
+            </article>
+        </template>
     </section>
-
-    <section class="featured-products">
-        <img src="img/product3.jpg" alt="Product 3" width="300">
-        </h2>Moniteur Gaming 144Hz</h2>
-        <p>Le meilleur moniteur Gaming</p>
-        <p>Prix : $190.0</p>
-        <button onclick="ajouterAuPanier()">Ajouter au panier</button> <!-- Ajoutez ici des éléments HTML représentant des produits en vedette -->
-    </section>
-
     <footer>
         <p>&copy; 2023 Neroxshop E-Commerce. Tous droits réservés.</p>
     </footer>
-
     <script src="js/main.js"></script>
 </body>
 </html>
