@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Panier</title>
+</head>
+<body>
+    <header>
+        <h1>Neroxshop</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="products.html">Produits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="cart">
+        <h2>Panier</h2>
+
+        <div class="cart-item">
+            <img src="img/product1.jpg" alt="Product 1" width="300">
+            <h3>Produit 1</h3>
+            <p>Prix : $19.99</p>
+            <button onclick="retirerDuPanier()">Retirer du panier</button>
+        </div>
+
+        <div class="cart-item">
+            <img src="img/product2.jpg" alt="Product 2" width="300">
+            <h3>Produit 2</h3>
+            <p>Prix : $29.99</p>
+            <button onclick="retirerDuPanier()">Retirer du panier</button>
+        </div>
+
+        <!-- Ajoutez d'autres articles du panier ici -->
+
+        <div class="cart-total">
+            <p>Total : $49.98</p>
+            <button onclick="passerLaCommande()">Passer la commande</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Neroxshop E-Commerce. Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

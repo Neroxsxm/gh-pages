@@ -62,3 +62,8 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.floating-icon {
+    float: right;
+    font-size: x-large;
+}
