@@ -40,11 +40,13 @@ nav a {
 }
 
 /* Featured products section styles */
-.featured-products {
+.featured-products, .product {
     max-width: 800px;
     margin: 20px auto;
 }
-
+.featured-products:last-of-type,.product:last-of-type {
+    margin-bottom: 70px;
+}
 .featured-products h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
