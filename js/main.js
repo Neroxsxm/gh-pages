@@ -61,13 +61,14 @@ function init() {
     console.log(document.location.pathname);
     let listeProduits = document.querySelector("section.products");
     const template = document.querySelector("#product");
-    if ('/index.html' == document.location.pathname) {
+    let currentPage = document.location.pathname.split('/').reverse()[0];
+    if ('index.html' == currentPage) {
         products
             .filter(function (item) { return item.featured })
             .forEach(function (item) {
                 itemToPage(item, listeProduits, template.content.cloneNode(true))
             });
-    } else if ('/panier.html' == document.location.pathname) {
+    } else if ('panier.html' == currentPage) {
         renderCart(template);
     } else if(listeProduits && template) {
         products
