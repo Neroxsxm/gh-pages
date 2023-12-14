@@ -133,4 +133,4 @@ function passerLaCommande() {
     panier.innerHTML = "<h2>Panier</h2><p>Le panier est vide.</p>";
 }
 
-init();
+init(); 
