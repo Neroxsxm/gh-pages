@@ -134,3 +134,19 @@ function passerLaCommande() {
 }
 
 init(); 
+
+// Fonction de connexion (simulation côté client)
+function connexion() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Vérifiez si le nom d'utilisateur et le mot de passe sont valides (simulation côté client)
+    if (username === "utilisateur" && password === "motdepasse") {
+        alert("Connexion réussie !");
+        // Redirigez l'utilisateur vers une autre page ou effectuez d'autres actions après la connexion
+        // window.location.href = "page_apres_connexion.html";
+    } else {
+        alert("Nom d'utilisateur ou mot de passe incorrect.");
+    }
+}
+
