@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Connexion</title>
+    <title>Création de Compte</title>
 </head>
 <body>
     <header>
@@ -14,25 +14,29 @@
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="products.html">Produits</a></li>
                 <li><a href="panier.html">Panier</a></li>
-
+                <li><a href="connexion.html">Connexion</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="content">
         <!-- Contenu de la page -->
-        <h2>Connexion</h2>
-        <p>Connectez-vous avec votre adresse e-mail et votre mot de passe.</p>
-        <form id="loginForm">
+        <h2>Création de Compte</h2>
+        <p>Créez un compte pour profiter de tous nos services.</p>
+        <form id="signupForm">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+            <br>
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+            <br>
             <label for="email">Adresse e-mail :</label>
             <input type="email" id="email" name="email" required>
             <br>
             <label for="motdepasse">Mot de passe :</label>
             <input type="password" id="motdepasse" name="motdepasse" required>
             <br>
-            <button type="button" onclick="connexion()">Se connecter</button>
-            
-            <p>Vous n'avez pas de compte ? <a href="creation_compte.html">Créer un compte</a></p>
+            <button type="button" onclick="creerCompte()">Créer un compte</button>
         </form>
     </section>
 
@@ -43,4 +47,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-

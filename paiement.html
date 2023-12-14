@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Paiement</title>
+</head>
+<body>
+    <header>
+        <h1>Neroxshop</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="connexion.html">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <!-- Contenu de la page -->
+        <h2>Informations de Paiement</h2>
+
+        <!-- Informations d'adresse -->
+        <form id="adresseForm">
+            <label for="pays">Pays :</label>
+            <input type="text" id="pays" name="pays" required>
+            <br>
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville" required>
+            <br>
+            <label for="rue">Rue :</label>
+            <input type="text" id="rue" name="rue" required>
+            <br>
+            <label for="codePostal">Code Postal :</label>
+            <input type="text" id="codePostal" name="codePostal" required>
+            <br>
+        </form>
+
+        <!-- Informations de carte de crédit -->
+        <form id="carteCreditForm">
+            <label for="numeroCarte">Numéro de carte :</label>
+            <input type="text" id="numeroCarte" name="numeroCarte" required>
+            <br>
+            <label for="dateExpiration">Date d'expiration :</label>
+            <input type="text" id="dateExpiration" name="dateExpiration" placeholder="MM/YY" required>
+            <br>
+            <label for="nomTitulaire">Nom du titulaire :</label>
+            <input type="text" id="nomTitulaire" name="nomTitulaire" required>
+            <br>
+            <label for="cryptogrammeVisuel">Cryptogramme visuel :</label>
+            <input type="text" id="cryptogrammeVisuel" name="cryptogrammeVisuel" required>
+            <br>
+        </form>
+
+        <button type="button" onclick="effectuerPaiement()">Effectuer le paiement</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Neroxshop E-Commerce. Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
