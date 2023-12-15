@@ -97,10 +97,29 @@ function itemToPage(item, listeProduits, thisProduit) {
 function ajouterAuPanier(ev) {
     let sku = ev.parentNode.dataset.sku;
     let produitToPanier = products.find(function (item) { return item.sku == sku });
-    currentCart.products.push(produitToPanier);
+
+    // Vérifier si le produit est déjà dans le panier
+    let existingProduct = currentCart.products.find(function (item) { return item.sku == sku });
+
+    if (existingProduct) {
+        // Si le produit est déjà dans le panier, augmenter la quantité
+        existingProduct.quantity++;
+    } else {
+        // Sinon, ajouter le produit au panier avec une quantité de 1
+        produitToPanier.quantity = 1;
+        currentCart.products.push(produitToPanier);
+    }
+
+    // Mettre à jour le prix total
+    currentCart.totalPrice += produitToPanier.prix;
+
+    // Mettre à jour le panier dans le stockage de session
     sessionStorage.setItem('cart', JSON.stringify(currentCart));
-    alert("Votre produit ete ajouter");
+
+    alert("Votre produit a été ajouté au panier");
 }
+
+    
 
     
     
@@ -111,10 +130,9 @@ function ajouterAuPanier(ev) {
 // Fonction pour ouvrir le panneau (à personnaliser selon vos besoins)
 function ouvrirPanneau() {
     window.location.href="./panier.html";
+    }
 
-    // Vous pouvez ajouter ici la logique pour afficher le panneau, le panier, etc.
-    // Par exemple, en manipulant les classes CSS, en modifiant le DOM, ou en utilisant une bibliothèque JavaScript.
-}
+   
 
 // Fonction pour retirer un produit du panier
 function retirerDuPanier(ev) {
@@ -269,38 +287,3 @@ function deconnexionUtilisateur() {
     alert('Vous êtes maintenant déconnecté.');
 }
 
-// Fonction de paiement
-function effectuerPaiement() {
-    // Vérifier si l'utilisateur est connecté
-    if (!estConnecte()) {
-        alert('Erreur : Vous devez être connecté pour effectuer un paiement.');
-        window.location.href = "connexion.html"; 
-        return;
-    }
-
-    // Récupérer les données du formulaire et simuler le traitement du paiement
-    var pays = document.getElementById('pays').value;
-    var ville = document.getElementById('ville').value;
-    var rue = document.getElementById('rue').value;
-    var codePostal = document.getElementById('codePostal').value;
-
-    var numeroCarte = document.getElementById('numeroCarte').value;
-    var dateExpiration = document.getElementById('dateExpiration').value;
-    var nomTitulaire = document.getElementById('nomTitulaire').value;
-    var cryptogrammeVisuel = document.getElementById('cryptogrammeVisuel').value;
-
-    // Valider les champs (vous pouvez ajouter une logique de validation plus robuste)
-    if (!pays || !ville || !rue || !codePostal || !numeroCarte || !dateExpiration || !nomTitulaire || !cryptogrammeVisuel) {
-        alert("Veuillez remplir tous les champs du formulaire.");
-        return;
-    }
-
-    // Simuler le traitement du paiement côté client
-    alert("Paiement effectué avec succès ! Merci de votre achat.");
-
-    // Vous pourriez également rediriger l'utilisateur vers une page de confirmation
-    // window.location.href = "confirmation_paiement.html";
-}
-
-// Ajoutez ces fonctions dans votre fichier HTML pour permettre à l'utilisateur de se connecter/déconnecter
-// par exemple, vous pouvez ajouter des boutons dans le HTML liés à ces fonctions.
