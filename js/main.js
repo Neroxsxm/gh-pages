@@ -233,6 +233,13 @@ function calculerPrixTotalDuPanier() {
 }
 
 function effectuerPaiement() {
+    // Vérifier si l'utilisateur est connecté
+    if (!estConnecte()) {
+        alert('Erreur : Vous devez être connecté pour effectuer un paiement.');
+        window.location.href = "connexion.html";
+        return;
+    }
+
     // Récupérer les données du formulaire
     var pays = document.getElementById('pays').value;
     var ville = document.getElementById('ville').value;
