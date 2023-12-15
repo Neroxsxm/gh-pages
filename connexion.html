@@ -23,14 +23,14 @@
         <!-- Contenu de la page -->
         <h2>Connexion</h2>
         <p>Connectez-vous avec votre adresse e-mail et votre mot de passe.</p>
-        <form id="loginForm">
+        <form id="loginForm" onsubmit="connexion()">
             <label for="email">Adresse e-mail :</label>
             <input type="email" id="email" name="email" required>
             <br>
             <label for="motdepasse">Mot de passe :</label>
             <input type="password" id="motdepasse" name="motdepasse" required>
             <br>
-            <button type="button" onclick="connexion()">Se connecter</button>
+            <button type="submit">Se connecter</button>
             
             <p>Vous n'avez pas de compte ? <a href="creation_compte.html">Créer un compte</a></p>
         </form>

@@ -14,6 +14,8 @@
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="products.html">Produits</a></li>
                 <li><a href="connexion.html">Connexion</a></li>
+
+                <button id="boutonDeconnexion">Déconnexion</button>
             </ul>
         </nav>
     </header>
@@ -24,7 +26,9 @@
                 <img src="img/none.jpg" alt="Product">
                 <h3>titre</h3>
                 <p>Description</p>
-                <p>Prix : <var class="price"></var>&euro;</p>
+                <p>Quantity : <var class="quantity"></var></p>
+                <p>Prix : <var class="price"></var>&euro; c/u</p>
+                <p>Subtotal : <var class="subtotal"></var>&euro;</p>
                 <button onclick="retirerDuPanier(this)">Retirer du panier</button>
             </article>
         </template>

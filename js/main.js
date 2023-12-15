@@ -88,6 +88,12 @@ function itemToPage(item, listeProduits, thisProduit) {
     description.textContent = item.description;
     let price = thisProduit.querySelector("var.price");
     price.textContent = item.price.toFixed(2);
+    let quantity = thisProduit.querySelector("var.quantity");
+    if(quantity)
+        quantity.textContent = item.quantity.toFixed(0);
+    let subtotal = thisProduit.querySelector("var.subtotal");
+    if(subtotal)
+        subtotal.textContent = (item.quantity * item.price).toFixed(2);
     let image = thisProduit.querySelector("img");
     image.src = item.img;
     listeProduits.appendChild(thisProduit);
@@ -110,19 +116,11 @@ function ajouterAuPanier(ev) {
         currentCart.products.push(produitToPanier);
     }
 
-    // Mettre à jour le prix total
-    currentCart.totalPrice += produitToPanier.prix;
-
     // Mettre à jour le panier dans le stockage de session
     sessionStorage.setItem('cart', JSON.stringify(currentCart));
 
     alert("Votre produit a été ajouté au panier");
 }
-
-    
-
-    
-    
 
 // Vous pourriez ajouter ici d'autres fonctionnalités JavaScript liées à votre site de e-commerce
 // Par exemple, la gestion du panier, des requêtes AJAX pour récupérer des données du serveur, etc.
@@ -131,8 +129,6 @@ function ajouterAuPanier(ev) {
 function ouvrirPanneau() {
     window.location.href="./panier.html";
     }
-
-   
 
 // Fonction pour retirer un produit du panier
 function retirerDuPanier(ev) {
@@ -164,8 +160,6 @@ function renderCart(template) {
     document.getElementById('cart-total').innerText = calculerPrixTotalDuPanier().toFixed(2);
 }
 
-
-
 // Fonction pour passer la commande
 function passerLaCommande() {
     // Logique de passer la commande ici
@@ -181,9 +175,6 @@ function passerLaCommande() {
 }
 
 init(); 
-
-
-
 
 // Fonction pour créer un compte (simulation côté client)
 function creerCompte() {
@@ -206,7 +197,6 @@ function creerCompte() {
     // Redirigez l'utilisateur vers une autre page après la création du compte
     // window.location.href = "connexion.html";
 }
-
 
 // Fonction de connexion (simulation côté client)
 function connexion() {
@@ -233,7 +223,7 @@ function calculerPrixTotalDuPanier() {
 
     // Iterer à travers chaque produit dans le panier et additionner les prix
     let prixTotal =  produitsDuPanier.reduce(function(total, produit) {
-        return total + produit.price;
+        return total + (produit.quantity * produit.price);
     }, 0);
 
     // Afficher le prix total (ou faites ce que vous voulez avec le prix total)
@@ -260,14 +250,14 @@ function effectuerPaiement() {
         return;
     }
 
+    var compte = JSON.parse(localStorage.getItem('compte'));
+
     // Simuler le traitement du paiement côté client
-    alert("Paiement effectué avec succès ! Merci de votre achat.");
+    alert("Paiement effectué avec succès ! Merci de votre achat, " + compte.prenom + ".");
 
     // Vous pourriez également rediriger l'utilisateur vers une page de confirmation
     // window.location.href = "confirmation_paiement.html";
 }
-
-
 
 function estConnecte() {
     // Simulez une vérification de connexion côté client
@@ -281,9 +271,15 @@ function connexionUtilisateur() {
     alert('Vous êtes maintenant connecté !');
 }
 
-function deconnexionUtilisateur() {
-    // Simulez le processus de déconnexion côté client
+// Fonction pour gérer la déconnexion
+function deconnecter() {
+    // Supprimer l'utilisateur de la session
     sessionStorage.removeItem('utilisateurConnecte');
-    alert('Vous êtes maintenant déconnecté.');
+    localStorage.removeItem('compte');
+
+    // Rediriger vers la page de connexion (ajustez le chemin selon votre structure)
+    window.location.reload();
 }
 
+if(document.getElementById('boutonDeconnexion'))
+    document.getElementById('boutonDeconnexion').addEventListener('click', deconnecter);
