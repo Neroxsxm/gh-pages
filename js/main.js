@@ -102,6 +102,9 @@ function ajouterAuPanier(ev) {
     alert("Votre produit ete ajouter");
 }
 
+    
+    
+
 // Vous pourriez ajouter ici d'autres fonctionnalités JavaScript liées à votre site de e-commerce
 // Par exemple, la gestion du panier, des requêtes AJAX pour récupérer des données du serveur, etc.
 
